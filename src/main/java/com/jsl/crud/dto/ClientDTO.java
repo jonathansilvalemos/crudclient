@@ -1,15 +1,20 @@
 package com.jsl.crud.dto;
 
 import com.jsl.crud.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "Data de nascimento não pode ser superior ao dia atual")
     private LocalDate birthDate;
     private Integer children;
 
